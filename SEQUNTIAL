@@ -194,13 +194,17 @@ void getTrafficData()
     }
 }
 
-int main()
-{
+int main() {
     // Read traffic data from file
-    getTrafficData();
+    readTrafficData();
 
-    cout << " 1 producer and 1  consumer " << endl;
-    processTrafficData(1, 1);
+    cout << "Using 1 thread for producer and 1 thread for consumer" << endl;
+    thread producer(produce);
+    thread consumer(consume);
+
+    // Join producer and consumer threads
+    producer.join();
+    consumer.join();
 
     return 0;
 }
