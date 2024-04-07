@@ -198,8 +198,6 @@ int main()
 {
     // Read traffic data from file
     getTrafficData();
-
-    // Run scenario: Using 12 threads (6 for producer, 6 for consumer)
     cout << "Total 8 Thread using 4 for each producer and consumer " << endl;
     processTrafficData(7, 7);
 
